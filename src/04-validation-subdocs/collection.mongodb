@@ -1,0 +1,35 @@
+use("platzi_store")
+//Ayuda a crear las reglas que queremos utlizar en nuestra BD y se validen los datos 
+db.createCollection('products', {
+    validator:{
+        $jsonSchema:{
+            bsonType: 'object',
+            required: ['name'],//es obligatorio colocar estos parametros al llenar la BD
+            properties: {
+                name: {
+                    bsonType: 'string'
+                },
+                sizes: {
+                    bsonType: 'array',
+                    minItems: 1,
+                    uniqueItems: true,
+                    items:{
+                        bsonType: 'string'
+                    }
+                },
+                category: {
+                    bsonType: 'object',
+                    required: ['name'],
+                    properties: {
+                        name:{
+                            bsonType: 'string'
+                        },
+                        image:{
+                            bsonType: 'string'
+                        },
+                    }
+                }
+            }
+        }   
+    }
+})
