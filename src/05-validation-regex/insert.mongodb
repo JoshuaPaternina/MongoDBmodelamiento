@@ -1,0 +1,11 @@
+use("platzi_store")
+
+db.users.insertOne({
+    name: 'Joshua',
+    last_name: 'Paternina',
+    email: 'joshuapaterninab@gmail.com',//email: 12 ----> no me deja por las restrincion que colocamos en el documento de collection
+    password: 'A5fajsd8',
+    role: 'admin',//role: 'coder' -----> no me deja por las restrincion que colocamos    
+    age: 23,//age : 15 ----> no me deja por las restrincion 
+    isSingle: false
+})
