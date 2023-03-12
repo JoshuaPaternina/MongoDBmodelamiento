@@ -1,0 +1,37 @@
+use("platzi_store")
+//Ayuda a crear las reglas que queremos utlizar en nuestra BD y se validen los datos 
+db.createCollection('users', {
+    validator:{
+        $jsonSchema:{
+            bsonType: 'object',
+            required: ['email', 'password','role'],//es obligatorio colocar estos parametros
+            additionalProperties: true,//False --> Quita la flexibilidad que tiene Mongo y no deja crear un atributo nuevo
+            properties: {
+                name: {
+                    bsonType: 'string'
+                },
+                last_name: {
+                    bsonType: 'string'
+                },
+                email: {
+                    bsonType: 'string'
+                },
+                password: {
+                    bsonType: 'string',
+                    pattern: '^[A-Za-z0-9]{8,}$',//{}-->indica la longitud, pattern es una expresion regular
+                },
+                age: {
+                    bsonType: 'number',
+                    minimum: 18,
+                    maximum: 99
+                },
+                isSingle: {
+                    bsonType: 'bool'
+                },
+                role: {
+                    enum: ['customer', 'seller', 'admin']//solo  deja ingresar este tipo de strings
+                }
+            }
+        }
+    }
+})
