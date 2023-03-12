@@ -1,0 +1,8 @@
+use("platzi_store")
+
+db.users.insertOne({
+    name: 'Joshua',
+    //email: 12 ----> no me deja por las restrincion que colocamos en el documento de collection
+    email: 'joshuapaterninab@gmail.com',
+    password: 'faksdkjsd'
+})
