@@ -1,0 +1,19 @@
+use("platzi_store")
+
+db.users.insertOne({
+    name: 'Joshua',
+    last_name: 'Paternina',
+    email: 'joshuapaterninab@gmail.com',
+    password: 'A5fajsd8',
+    social_account: ['twitter', 'facebook'],
+    address: {
+        street: 'cr891',
+        city: 'Bogota',
+        zip: '1112111'
+        },
+    shipping_address:{
+        street:'cr 13 20',
+        city:'Bogota',
+        zip:'111311'
+    },
+})  
